@@ -1,21 +1,23 @@
 export async function getRandomUser() {
-  const baseURL = import.meta.env.VITE_USER_URL; 
-  const response = await fetch(`${baseURL}api/`);
+  const URL = import.meta.env.VITE_USER_URL;
+  const response = await fetch(URL);
 
   if (!response.ok) {
     throw new Error("Failed to fetch random user");
   }
 
-  return response.json();
+  const data = await response.json();
+  return data.results[0];
 }
 
 export async function getFantasyName() {
-  const baseURL = import.meta.env.VITE_FANTASY_URL;
-  const response = await fetch(baseURL);
+  const URL = import.meta.env.VITE_FANTASY_URL;
+  const response = await fetch(URL);
 
   if (!response.ok) {
     throw new Error("Failed to fetch fantasy name");
   }
 
-  return response.json();
+  return response.text();
 }
+

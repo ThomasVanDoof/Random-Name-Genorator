@@ -1,14 +1,12 @@
-/* === Root color variables === */
 :root {
-  --primary-color: #D1D690;     /* Light green / accent */
-  --secondary-color: #B5210D;   /* Dark red / highlight */
-  --tertiary-color: #232529;    /* Dark background / text */
+  --primary-color: #D1D690; 
+  --secondary-color: #B5210D;  
+  --tertiary-color: #232529;    
   --light-color: #ffffff;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --font-family: 'Arial', sans-serif;
 }
 
-/* === Reset & base styles === */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +22,7 @@ body {
   min-height: 100vh;
 }
 
-/* === Header === */
+/*Header*/
 header {
   background-color: var(--primary-color);
   padding: 1rem 2rem;
@@ -44,7 +42,7 @@ header h1 {
   font-weight: bold;
 }
 
-/* === Main section === */
+/*Main*/
 main {
   flex: 1;
   display: flex;
@@ -69,7 +67,7 @@ main {
   box-shadow: 0 12px 20px var(--shadow-color);
 }
 
-/* === Button === */
+/*Button*/
 #name-generator button {
   background-color: var(--secondary-color);
   color: var(--light-color);
@@ -89,7 +87,7 @@ main {
   transform: scale(1.05);
 }
 
-/* === Name display === */
+/*Name display*/
 #random-name-display {
   font-size: 1.6rem;
   font-weight: bold;
@@ -103,9 +101,9 @@ main {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* === Footer === */
+/*Footer*/
 footer {
-  background-color: var(--tertiary-color);
+  background-color: var(--secondary-color);
   color: var(--light-color);
   text-align: center;
   padding: 1rem 2rem;
@@ -117,7 +115,7 @@ footer p {
   margin: 0.3rem 0;
 }
 
-/* === Responsive === */
+/*Responsive*/
 @media (max-width: 600px) {
   #name-generator {
     padding: 1.8rem 2rem;
