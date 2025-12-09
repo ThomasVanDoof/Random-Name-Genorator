@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+ 
+# Grant the workflow explicit permission to push to the repository
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -10,6 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # ensure the action can push back to the repo
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -34,6 +42,9 @@ jobs:
           mkdir -p docs
           cp -a dist/. docs/
           git add docs
+          # Show status for debugging if push fails
+          git --no-pager status --porcelain
+          git --no-pager remote -v
           if git diff --staged --quiet; then
             echo "No changes to docs; skipping commit"
           else
