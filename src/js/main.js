@@ -1,8 +1,8 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("last-modified").textContent = `Last Modified: ${document.lastModified}`;
 
-import { getRandomUser } from "./ExternalServices.mjs";
-getFantasyName
+import { getRandomUser, getFantasyName } from "./ExternalServices.mjs";
+
 const generateBtn = document.getElementById("generate-name-btn");
 const display = document.getElementById("random-name-display");
 
@@ -72,10 +72,10 @@ async function generateName() {
             params.ancestry = fantasyAncestry.value;
             params.gender = fantasyGender.value === "any" ? undefined : fantasyGender.value;
             params.family = fantasyFamily.value && fantasyFamily.value !== "f" ? "t" : undefined;
+
             const name = await getFantasyName(params);
             generatedName = name.trim();
         }
-
 
         else {
             const user = await getRandomUser();
