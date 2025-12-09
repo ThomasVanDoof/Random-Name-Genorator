@@ -1,8 +1,8 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("last-modified").textContent = `Last Modified: ${document.lastModified}`;
 
-import { getRandomUser, getFantasyName } from "./ExternalServices.mjs";
-
+import { getRandomUser } from "./ExternalServices.mjs";
+//getFantasyName
 const generateBtn = document.getElementById("generate-name-btn");
 const display = document.getElementById("random-name-display");
 
@@ -66,20 +66,20 @@ async function generateName() {
             generatedName = `${user.name.first} ${user.name.last}`;
         }
 
-        else if (category === "fantasy") {
-            const params = {};
-
-            params.ancestry = fantasyAncestry.value;
-            params.gender = fantasyGender.value === "any" ? undefined : fantasyGender.value;
-            params.family = fantasyFamily.value && fantasyFamily.value !== "f" ? "t" : undefined;
-
-            const name = await getFantasyName(params);
-            generatedName = name.trim();
-        }
-
+//        else if (category === "fantasy") {
+//            const params = {};
+//
+//            params.ancestry = fantasyAncestry.value;
+//            params.gender = fantasyGender.value === "any" ? undefined : fantasyGender.value;
+//            params.family = fantasyFamily.value && fantasyFamily.value !== "f" ? "t" : undefined;
+//            const name = await getFantasyName(params);
+//            generatedName = name.trim();
+//        }
+//
+//
         else {
             const user = await getRandomUser();
-            const fantasy = await getFantasyName();
+            //const fantasy = await getFantasyName();
 
             generatedName = `${user.name.first} ${user.name.last} | ${fantasy.trim()}`;
         }
