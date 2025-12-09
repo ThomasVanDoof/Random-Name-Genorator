@@ -2,9 +2,10 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: "src",
-  base: './',
+  base: "/Random-Name-Genorator/",
   build: {
-    outDir: "../dist",
+    outDir: "../docs",
     emptyOutDir: true
   }
 });
+
