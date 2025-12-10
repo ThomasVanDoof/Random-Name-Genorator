@@ -70,7 +70,8 @@ async function generateName() {
 
             params.ancestry = fantasyAncestry.value;
             params.gender = fantasyGender.value === "any" ? undefined : fantasyGender.value;
-            params.family = fantasyFamily.value && fantasyFamily.value !== "f" ? "t" : undefined;
+            // select uses values: "none" and "t" — only send "t" when user selected Yes
+            params.family = fantasyFamily.value === "t" ? "t" : undefined;
 
             const name = await getFantasyName(params);
             generatedName = name.trim();
